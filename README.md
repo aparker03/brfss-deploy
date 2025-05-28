@@ -1,5 +1,7 @@
 ## BRFSS Depression Index Explorer
 
+[![Streamlit App](https://img.shields.io/badge/launch-app-brightgreen)](https://state-of-mind.streamlit.app/)
+
 This interactive web application allows users to explore depression-related health patterns in the United States using the 2022 Behavioral Risk Factor Surveillance System (BRFSS) dataset. The app features a custom Depression Index (DI) constructed from selected mental health and social variables, enabling users to filter by demographic groups, apply different imputation methods, and visualize outcomes in real time.
 
 ## Live App

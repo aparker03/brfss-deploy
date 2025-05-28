@@ -22,6 +22,20 @@ st.warning(
 st.title("BRFSS Depression Index Explorer (2022)")
 st.caption("Explore patterns in mental health using a custom PHQ-9-based index with live filters and visualizations.")
 
+with st.expander("ℹ️ About this app"):
+    st.markdown("""
+    This application visualizes mental health trends from the 2022 Behavioral Risk Factor Surveillance System (BRFSS), 
+    focusing on a custom-built **Depression Index (DI)** based on PHQ-9-like variables, social support, and self-reported health.
+
+    You can:
+    - Filter by sex, education, and general health
+    - Choose different imputation strategies for missing data
+    - Compare depression trends across U.S. states and demographics
+    - Download the filtered data for your own analysis
+
+    The dataset is publicly available and processed from CDC’s BRFSS 2022 survey.
+    """)
+
 # === TABS ===
 tab1, tab2, tab3, tab4 = st.tabs([
     "📊 Histogram", 
