@@ -6,6 +6,9 @@ This interactive web application allows users to explore depression-related heal
 
 Access the deployed application here: [state-of-mind.streamlit.app](https://state-of-mind.streamlit.app/)
 
+> **Note:** The deployed version of this app uses a sampled subset of the full 2022 BRFSS dataset to optimize performance on Streamlit Cloud.  
+> For full access to all features and data, please run the app locally using the installation instructions below.
+
 ## Features
 
 This Streamlit app provides an interactive interface for exploring mental health patterns using data from the 2022 Behavioral Risk Factor Surveillance System (BRFSS). Key features include:
