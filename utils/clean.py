@@ -1,8 +1,6 @@
-import pandas as pd
 import numpy as np
 import streamlit as st
 from sklearn.preprocessing import MinMaxScaler
-from utils.load import load_data
 
 # === STATE MAPPING ===
 state_mapping = {
