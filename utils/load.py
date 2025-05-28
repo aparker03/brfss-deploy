@@ -3,7 +3,7 @@ import streamlit as st
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("notebooks/brfss/data/brfss_2022.csv")
+    df = pd.read_csv("https://drive.google.com/file/d/1kBfb36YYRPS2ouLCK0-UQcczTmC3SFUh/view?usp=drive_link")
     df.columns = df.columns.str.upper().str.strip()
 
     df = df[df["_SEX"].isin([1.0, 2.0])]
