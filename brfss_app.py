@@ -1,37 +1,41 @@
-# apps/brfss/brfss_app.py
-
 import streamlit as st
-from utils import clean, viz, ui
+from utils.load import load_data
+from utils.clean import process_di_data
+from utils.ui import configure_page, sidebar_filters, apply_filters, footer
+from utils.viz import histogram_and_summary, state_choropleth, group_comparison, download_csv_section
 
-# === Configure Layout ===
-ui.configure_page()
+# === CONFIGURE PAGE ===
+configure_page()
 
-# === Load and Process Data ===
-df_raw = clean.load_data()
-impute_method, sex, hlth, educ = ui.sidebar_filters(df_raw)
-df_processed = clean.process_di_data(df_raw, impute_method)
-filtered = ui.apply_filters(df_processed, sex, hlth, educ)
+# === LOAD AND PROCESS DATA ===
+df_raw = load_data()
+impute_method, sex, hlth, educ = sidebar_filters(df_raw)
+df_processed = process_di_data(df_raw, impute_method)
+filtered = apply_filters(df_processed, sex, hlth, educ)
 
-# === Page Title & Intro ===
+# === MAIN LAYOUT ===
 st.title("BRFSS Depression Index Explorer (2022)")
 st.caption("Explore patterns in mental health using a custom PHQ-9-based index with live filters and visualizations.")
 
-# === Tabs ===
+# === TABS ===
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📊 Histogram", "🗺️ Choropleth Map", "📈 Group Comparison", "📥 Download"
+    "📊 Histogram", 
+    "🗺️ Choropleth Map", 
+    "📈 Group Comparison", 
+    "📥 Download"
 ])
 
 with tab1:
-    viz.histogram_and_summary(filtered)
+    histogram_and_summary(filtered)
 
 with tab2:
-    viz.state_choropleth(filtered)
+    state_choropleth(filtered)
 
 with tab3:
-    viz.group_comparison(filtered)
+    group_comparison(filtered)
 
 with tab4:
-    viz.download_csv_section(filtered)
+    download_csv_section(filtered)
 
-# === Footer ===
-ui.footer(impute_method)
+# === FOOTER ===
+footer(impute_method)
